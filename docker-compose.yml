@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  # ── Optional PostgreSQL (comment out to use SQLite)
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: tracker
+      POSTGRES_PASSWORD: tracker123
+      POSTGRES_DB: tracking_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  tracker:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://tracker:tracker123@db:5432/tracking_db
+    ports:
+      - "8000:8000"   # FastAPI
+      - "8501:8501"   # Streamlit
+    volumes:
+      - ./logs:/app/logs
+    command: python main.py --mode all --headless
+
+volumes:
+  pgdata:
