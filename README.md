@@ -1,4 +1,4 @@
-# 🎯 Real-Time Object Detection & Multi-Object Tracking
+# Real-Time Object Detection & Multi-Object Tracking
 
 **YOLOv8 + DeepSORT + FastAPI + Streamlit + PostgreSQL/SQLite**
 
@@ -19,7 +19,7 @@ yolo_tracking/
 
 ---
 
-## ⚡ Quick Start (Cursor / Local)
+## Quick Start
 
 ### Step 1 — Prerequisites
 ```bash
@@ -92,7 +92,7 @@ python main.py --mode all
 
 ---
 
-## 🐳 Docker (optional)
+## Docker (optional)
 
 ```bash
 # SQLite (simplest)
@@ -105,7 +105,7 @@ docker-compose up --build
 
 ---
 
-## 🗄️ PostgreSQL Setup (optional)
+## PostgreSQL Setup (optional)
 
 By default the system uses **SQLite** — zero configuration needed.
 
